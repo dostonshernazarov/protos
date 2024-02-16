@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package hotel;
+
+service HotelService {
+    rpc Create(Hotel) returns (Hotel);
+
+}
+
+message Hotel{
+    string id = 1;
+}
