@@ -3,6 +3,7 @@ syntax = "proto3";
 package user;
 
 service UserService {
+  rpc PartCreate(PartUser) returns (PartUser);
   rpc Create(User) returns (User);
   rpc CheckUniqueEmail(CheckUniqueRequest) returns (CheckUniqueRespons);
   rpc CheckUniqueNum(CheckUniqueRequest) returns (CheckUniqueRespons);
@@ -13,10 +14,18 @@ message CheckUniqueResult {
   int64 result = 1;
 }
 
+message PartUser {
+  string id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  string email = 4;
+  string password = 5;
+}
+
 message User{
   string id = 1;
   string first_name = 2;
-  string last_ame = 3;
+  string last_name = 3;
   string email = 4;
   string password = 5;
   string birthday = 6;
