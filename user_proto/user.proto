@@ -30,6 +30,7 @@ message PartUser {
   string last_name = 3;
   string email = 4;
   string password = 5;
+  string refresh_tkn = 6;
 }
 
 message User{
