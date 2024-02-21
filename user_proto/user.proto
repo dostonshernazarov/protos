@@ -7,7 +7,12 @@ service UserService {
   rpc Create(User) returns (User);
   rpc CheckUniqueEmail(CheckUniqueRequest) returns (CheckUniqueRespons);
   rpc CheckUniqueNum(CheckUniqueRequest) returns (CheckUniqueRespons);
+  rpc GetUserByEmail(GetUserByEmailRequest) returns (User);
+}
 
+
+message GetUserByEmailRequest{
+  string email = 1;
 }
 
 message CheckUniqueResult {
