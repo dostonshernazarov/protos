@@ -9,6 +9,7 @@ service UserService {
   rpc CheckUniqueNum(CheckUniqueRequest) returns (CheckUniqueRespons);
   rpc GetUserByEmail(GetUserByEmailRequest) returns (User);
   rpc GetUserByRfshToken(GetUserByRfshTokenRequest) returns (User);
+  rpc UpdateUser(User) returns (User);
 }
 
 message GetUserByRfshTokenRequest{
