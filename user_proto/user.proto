@@ -8,6 +8,11 @@ service UserService {
   rpc CheckUniqueEmail(CheckUniqueRequest) returns (CheckUniqueRespons);
   rpc CheckUniqueNum(CheckUniqueRequest) returns (CheckUniqueRespons);
   rpc GetUserByEmail(GetUserByEmailRequest) returns (User);
+  rpc GetUserByRfshToken(GetUserByRfshTokenRequest) returns (User);
+}
+
+message GetUserByRfshTokenRequest{
+  string token = 1;
 }
 
 
@@ -38,6 +43,7 @@ message User{
   string card_num = 8;
   string phone = 9;
   string role = 10;
+  string refresh_token = 11;
 }
 
 message CheckUniqueRespons{
