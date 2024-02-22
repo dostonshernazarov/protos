@@ -32,6 +32,7 @@ message PartUser {
   string email = 4;
   string password = 5;
   string refresh_tkn = 6;
+  string role = 7;
 }
 
 message User{
