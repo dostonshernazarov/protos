@@ -3,16 +3,23 @@ syntax = "proto3";
 package user;
 
 service UserService {
-  rpc PartCreate(PartUser) returns (PartUser);
   rpc Create(User) returns (User);
   rpc CheckUniqueEmail(CheckUniqueRequest) returns (CheckUniqueRespons);
   rpc CheckUniqueNum(CheckUniqueRequest) returns (CheckUniqueRespons);
   rpc GetUserByEmail(GetUserByEmailRequest) returns (User);
   rpc GetUserByRfshToken(GetUserByRfshTokenRequest) returns (User);
   rpc UpdateUser(User) returns (User);
-  rpc GetUSerByID(IdRequest) returns (User);
+  rpc GetUserByID(IdRequest) returns (User);
   rpc GetAllUsers(GetAllUsersRequest) returns (GetAllUsersRespons);
   rpc DeleteUserByID(IdRequest) returns (DeleteUserByIDRespons);
+  rpc GetWithColumnAndItem(GetWithColumnAndItemReq) returns (GetAllUsersRespons);
+}
+
+message GetWithColumnAndItemReq{
+  string column = 1;
+  string item = 2;
+  int64 page = 3;
+  int64 limit = 4;
 }
 
 message DeleteUserByIDRespons{
@@ -45,15 +52,6 @@ message CheckUniqueResult {
   int64 result = 1;
 }
 
-message PartUser {
-  string id = 1;
-  string first_name = 2;
-  string last_name = 3;
-  string email = 4;
-  string password = 5;
-  string refresh_tkn = 6;
-  string role = 7;
-}
 
 message User{
   string id = 1;
