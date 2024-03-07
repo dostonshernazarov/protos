@@ -1,0 +1,96 @@
+syntax = "proto3";
+
+package attraction;
+
+service AttractionService {
+    rpc CreateOwner(Owner) returns (Owner);
+    rpc GetOwner(GetOwnerRequest) returns (GetOwnerResponse);
+    rpc DeleteOwner(DeleteOwnerRequest) returns (DeleteOwnerResponse);
+    rpc UpdateOwnerImage(UpdateOwnerImageRequest) returns (UpdateOwnerImageResponse);
+    rpc GetAllOwners(GetAllOwnersRequest) returns (GetAllOwnersResponse);
+    rpc CreateAttraction(Attraction) returns (Attraction);
+    rpc GetAttractionByName(GetAttractionByNameRequest) returns (GetAttractionByNameResponse);
+    rpc GetAttractionsByCategory(GetAttractionsByCategoryRequest) returns (GetAttractionsByCategoryResponse);
+}
+
+message GetAttractionsByCategoryRequest {
+    string category = 1;
+}
+
+message GetAttractionsByCategoryResponse {
+    repeated Attraction attractions = 1;
+}
+
+message GetAttractionByNameRequest {
+    string name = 1;
+}
+
+message GetAttractionByNameResponse {
+    repeated Attraction attractions = 1;
+}
+message Attraction {
+    string attraction_id = 1;
+    string name = 2;
+    string description = 3;
+    string location_id = 4;
+    string opening_hours = 5;
+    string closing_hours = 6;
+    string category = 7;
+    float rating = 8;
+    string image_url = 9;
+    string website_url = 10;
+    string contact_information = 11;
+    string created_at = 12;
+    string updated_at = 13;
+    string deleted_at = 14;
+    string owner_id = 15;
+}
+
+message GetAllOwnersRequest {
+    int64 page = 1;
+    int64 limit = 2;
+}
+
+message GetAllOwnersResponse {
+    repeated Owner owners = 1;
+}
+
+message UpdateOwnerImageRequest {
+    string phone_number = 1;
+    string new_image_url = 2;
+}
+
+message UpdateOwnerImageResponse {
+    bool success = 1;
+}
+
+message DeleteOwnerRequest {
+    string phone_number = 1;
+}
+
+message DeleteOwnerResponse {
+    bool success = 1;
+}
+
+message Owner{
+    string owner_id = 1;
+    string full_name = 2;
+    string email = 3;
+    string password = 4;
+    string birthday = 5;
+    string phone_number = 6;
+    string image_url = 7;
+    string refresh_token = 8;
+    string created_at = 9;
+    string updated_at = 10;
+    string deleted_at = 11;
+    string role = 12;  
+}
+
+message GetOwnerRequest {
+    string phone_number = 1;
+}
+
+message GetOwnerResponse {
+    Owner Owner = 1;
+}
