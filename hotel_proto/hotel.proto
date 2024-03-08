@@ -8,6 +8,10 @@ service OwnerService {
     rpc GetAllOwner(GetAllReq) returns (GetAllRes);
 }
 
+message Test {
+
+}
+
 service HotelService {
     rpc CreateHotel(Hotel) returns (Hotel);
     rpc CreateRoom(Room) returns (Room);
