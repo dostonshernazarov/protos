@@ -28,22 +28,42 @@ message GetAttractionByNameRequest {
 message GetAttractionByNameResponse {
     repeated Attraction attractions = 1;
 }
+
 message Attraction {
     string attraction_id = 1;
     string name = 2;
     string description = 3;
-    string location_id = 4;
+    Location location = 4;
     string opening_hours = 5;
     string closing_hours = 6;
     string category = 7;
     float rating = 8;
-    string image_url = 9;
+    repeated Image images = 9;
     string website_url = 10;
     string contact_information = 11;
     string created_at = 12;
     string updated_at = 13;
     string deleted_at = 14;
     string owner_id = 15;
+}
+
+message Image {
+    int64 image_id = 1;
+    string attraction_id = 2;
+    string image_url = 3;
+    string created_at = 4;
+}
+
+message Location {
+    string location_id = 1;
+    string location_name = 2;
+    float latitude = 3;
+    float longitude = 4;
+    string country = 5;
+    string city = 6;
+    string state_province = 7;
+    string address = 8;
+    string attraction_id = 9;
 }
 
 message GetAllOwnersRequest {
