@@ -4,13 +4,26 @@ package hotel;
 
 service OwnerService {
     rpc CreateOwner(Owner) returns (Owner);
-    rpc GetOwnerByColumnItem(GetOwnerByColumnItemReq) returns (Owner);
-    rpc GetAllOwner(GetAllOwnerReq) returns (GetAllOwnerRes);
+    rpc GetOwnerByColumnItem(GetByColumnItemReq) returns (Owner);
+    rpc GetAllOwner(GetAllReq) returns (GetAllRes);
 }
 
 service HotelService {
     rpc CreateHotel(Hotel) returns (Hotel);
+    rpc CreateRoom(Room) returns (Room);
 }
+
+message Room {
+    string id = 1;
+    string hotel_id = 2;
+    string price = 3;
+    string description = 4;
+    string holidays = 5;
+    string free_days = 6;
+    string number_of_rooms = 7;
+    string discount = 8;
+    }
+
 
 message Hotel {
     string id = 1;
@@ -23,20 +36,21 @@ message Hotel {
     string city = 8;
     string province = 9;
     string address = 10;
-    string created_at = 11;
-    string updated_at = 12;
+    string owner_id = 11;
+    string created_at = 12;
+    string updated_at = 13;
 }
 
-message GetAllOwnerRes{
+message GetAllRes{
     repeated Owner owners = 1;
 }
 
-message GetAllOwnerReq{
+message GetAllReq{
     int64 page = 1;
     int64 limit = 2;
 }
 
-message GetOwnerByColumnItemReq{
+message GetByColumnItemReq{
     string column = 1;
     string item = 2;
 }
